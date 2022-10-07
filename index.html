@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTANDO TABELA</title>
+</head>
+<body>
+    <script>
+
+var vClienteNome = new Array(100);
+var vClienteIdade = new Array(100);
+var vClienteMenor = new Array(100);
+var vClienteMaior = new Array(100);
+
+var qtd = window.prompt('Quantos clientes precisam ser cadastrados?')
+
+var indMaior = 0;
+var qtdMaior = 0;
+var ind = 0;
+var indMenor = 0;
+var qtdMenor = 0;
+while (ind < qtd) {
+
+    vClienteNome[ind] = window.prompt('Fale o nome do cliente ')
+    vClienteIdade[ind] = window.prompt('Fale a idade do cliente')
+
+    if (vClienteIdade[ind] < 18) {
+        vClienteMenor[indMenor] = vClienteNome[ind]
+
+        qtdMenor++;
+        indMenor++;
+    } else {
+
+        vClienteMaior[indMaior] = vClienteNome[ind]
+        qtdMaior++;
+        indMaior++;
+    }
+
+    ind++;
+}
+
+document.write(" <table border=4>")
+
+document.write(" <tr> <th> NOME </th> <th>  IDADE </th> </tr> ")
+for (let i = 0; i < qtd; i++) {
+
+    document.write(` <tr> <td> ${vClienteNome[i].toUpperCase()} </td> <td> ${vClienteIdade[i]} </td> </tr> `)
+
+}
+
+document.write(" </table>")
+
+
+document.write(" <table border=1>")
+
+
+
+document.write(" <tr> <th> MENOR DE IDADE </th> </tr>  ")
+
+
+for (let i = 0; i < qtdMenor; i++) {
+
+    document.write(`<tr> <td> ${vClienteMenor[i].toUpperCase()}  </td> </tr> `)
+
+}
+
+document.write(` <tr> <th> MAIOR DE IDADE </th> </tr> `)
+for (let i = 0; i < qtdMaior; i++) {
+
+
+    document.write(` <tr> <td> ${vClienteMaior[i].toUpperCase()} </td> </tr> `)
+
+
+}
+
+document.write(" </table>")
+
+    </script>
+</body>
+</html>
